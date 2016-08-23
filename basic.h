@@ -5,11 +5,28 @@
 #include <QDebug>
 #include <QQueue>
 #include <QString>
+#include <QtNetwork>
 #define SIZE_C (sizeof(Course))
 #define SIZE_P (sizeof(Person))
+#define ACK "1234567890"
 enum DATE{NON=0,MON,TUE,WED,THU,FRI,SAT,SUN};
 enum LEV{USR=0,SU};
 enum DEP{DA=0,EE,CS,MA,PH,CH};
+enum MOD{
+    NONE=0,
+    //Common action
+    LOG_IN,
+    REGISTER,
+    MODIFY_PASSWORD,
+    //Action caused by student
+    SELECTED_COURSE,
+    QUIT_COURSE,
+    SEEK_COURSE,
+    //Action caused by admin
+    MODIFY_CLASS,
+    DELETE_CLASS,
+    DELETE_STUDENT,
+};
 const int MAX=10;
 const int SIZE=128;
 struct Course{
